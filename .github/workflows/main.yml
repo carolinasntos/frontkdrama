@@ -29,6 +29,6 @@ jobs:
 
       - name: Deploy to Azure Static Web App
         run: |
-          curl -X POST "https://https://blue-mushroom-096ffa310.6.azurestaticapps.net/api/deployments" \
+          curl -X POST "https://blue-mushroom-096ffa310.6.azurestaticapps.net/api/deployments" \
           -H "Authorization: Bearer ${{ secrets.AZURE_STATIC_TOKEN }}" \
           -F "artifact=@./dist.zip"
