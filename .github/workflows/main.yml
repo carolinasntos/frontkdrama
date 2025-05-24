@@ -1,0 +1,34 @@
+name: Deploy Vite React App to Azure Static Web App
+
+on:
+  push:
+    branches:
+      - main  # o el branch correcto que estés usando
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Zip dist folder
+        run: zip -r dist.zip ./dist
+
+      - name: Deploy to Azure Static Web App
+        run: |
+          curl -X POST "https://https://blue-mushroom-096ffa310.6.azurestaticapps.net/api/deployments" \
+          -H "Authorization: Bearer ${{ secrets.AZURE_STATIC_TOKEN }}" \
+          -F "artifact=@./dist.zip"
