@@ -3,7 +3,7 @@ name: Deploy Vite React App to Azure Static Web App
 on:
   push:
     branches:
-      - main  # o el branch correcto que estés usando
+      - main
 
 jobs:
   build-and-deploy:
@@ -24,7 +24,7 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
-      - name: Copy config to dist/
+      - name: Copy Azure config to dist/
         run: cp staticwebapp.config.json dist/
 
       - name: Zip contents of dist/
