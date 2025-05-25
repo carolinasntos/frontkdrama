@@ -1,9 +1,9 @@
-name: Deploy Vite React App to Azure Static Web App
+name: Deploy Vite React App to Azure Static Web Apps
 
 on:
   push:
     branches:
-      - main
+      - main  # Cambia si usas otro branch
 
 jobs:
   build-and-deploy:
@@ -24,15 +24,11 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
-      - name: Copy Azure config to dist/
-        run: cp staticwebapp.config.json dist/
-
-      - name: Zip contents of dist/
-        run: cd dist && zip -r ../dist.zip .
-
       - name: Deploy to Azure Static Web App
-        run: |
-          curl -X POST "https://blue-mushroom-096ffa310.6.api.azurestaticapps.net/api/deployments" \
-          -H "Authorization: Bearer 9be1b6b3b6d6d3f1a9425546cd2ee2ca4f6fd66f23770b96e87177cbcb9207f806-9f1695c7-dd65-4b69-926d-2f2fd0c068100100216096ffa310" \
-          -F "artifact=@./dist.zip"
-        
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"               # raíz del frontend
+          output_location: "dist"         # carpeta generada por vite build 
