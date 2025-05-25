@@ -24,6 +24,9 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
+      - name: Copy config to dist/
+        run: cp staticwebapp.config.json dist/
+
       - name: Zip contents of dist/
         run: cd dist && zip -r ../dist.zip .
 
