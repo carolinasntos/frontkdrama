@@ -7,7 +7,7 @@ export default function LoginForm({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://127.0.0.1:3000/api/auth/login', form, {
+      const res = await axios.post('https://pymex.azurewebsites.net/api/auth/login', form, {
         headers: {
           'Content-Type': 'application/json'
         }

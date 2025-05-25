@@ -8,7 +8,7 @@ export default function MyKdramas({ token }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/user-kdramas', {
+    axios.get('https://pymex.azurewebsites.net/api/user-kdramas', {
       headers: { Authorization: token }
     })
       .then(res => {
@@ -31,7 +31,7 @@ export default function MyKdramas({ token }) {
   const handleDelete = async (idUserKDrama) => {
     if (!confirm("¿Estás seguro de que quieres eliminar este K-Drama?")) return;
     try {
-      await axios.delete(`http://localhost:3000/api/user-kdramas/${idUserKDrama}`, {
+      await axios.delete(`https://pymex.azurewebsites.net/api/user-kdramas/${idUserKDrama}`, {
         headers: { Authorization: token }
       });
       setUserKdramas(prev => prev.filter(item => item.idUserKDrama !== idUserKDrama));

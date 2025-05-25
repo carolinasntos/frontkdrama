@@ -8,7 +8,7 @@ export default function Profile({ token }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/users/me', {
+    axios.get('https://pymex.azurewebsites.net/api/users/me', {
       headers: { Authorization: token }
     })
     .then(res => {
@@ -22,7 +22,7 @@ export default function Profile({ token }) {
   }, [token]);
 
   const handleSave = () => {
-    axios.put('http://localhost:3000/api/users/me', {
+    axios.put('https://pymex.azurewebsites.net/api/users/me', {
       username: newUsername
     }, {
       headers: {

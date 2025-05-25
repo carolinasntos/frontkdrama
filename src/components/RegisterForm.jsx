@@ -7,7 +7,7 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/auth/register', form);
+      await axios.post('https://pymex.azurewebsites.net/api/auth/register', form);
       alert('Usuario registrado');
     } catch (err) {
       alert(err.response?.data?.error || 'Error en registro');

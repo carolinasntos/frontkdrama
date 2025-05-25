@@ -7,7 +7,7 @@ export default function AddKdramas({ token }) {
   const [form, setForm] = useState({ rating: 5, review: '' });
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/kdramas', {
+    axios.get('https://pymex.azurewebsites.net/api/kdramas', {
       headers: { Authorization: token }
     }).then(res => setKdramas(res.data))
       .catch(err => console.error(err));
@@ -26,7 +26,7 @@ export default function AddKdramas({ token }) {
 
   const handleSubmit = async (idKDrama) => {
     try {
-      await axios.post('http://localhost:3000/api/user-kdramas', {
+      await axios.post('https://pymex.azurewebsites.net/api/user-kdramas', {
         idKDrama,
         rating: form.rating,
         review: form.review,
