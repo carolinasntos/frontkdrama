@@ -5,9 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   test: {
+    environment: 'jsdom',
     coverage: {
-      provider: 'c8', // o 'v8'
-      reporter: ['text', 'html']
-    }
+      provider: 'v8', // usa @vitest/coverage-v8
+      reporter: ['text', 'html'], // genera informe en terminal y en carpeta html
+    },
   }
 })
