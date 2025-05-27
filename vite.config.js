@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom',
+    globals: true, // ← ¡Esto habilita describe, it, expect sin importar nada!
     coverage: {
       provider: 'v8', // usa @vitest/coverage-v8
       reporter: ['text', 'html'], // genera informe en terminal y en carpeta html
