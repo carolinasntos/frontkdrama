@@ -50,7 +50,6 @@ export default function MyKdramas({ token }) {
       <h2>Mis K-Dramas Calificados</h2>
       <ul>
         {userKdramas.map((item, i) => (
-          // eslint-disable-next-line no-unused-vars
           <li key={item.idUserKDrama}>
             <strong>{item.KDrama?.title || "Título desconocido"}</strong><br />
             {item.review && <em>Reseña:</em>} {item.review || "(sin reseña)"}<br />
