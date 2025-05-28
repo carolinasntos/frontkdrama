@@ -14,7 +14,7 @@ export default function AddKdramas({ token }) {
   }, [token]);
 
   const handleAgregar = (idKDrama) => {
-    setExpandedId(expandedId === idKDrama ? null : idKDrama); // alternar
+    setExpandedId(expandedId === idKDrama ? null : idKDrama);
     setForm({
       rating: 5,
       review: '',

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default function Profile({ token }) {
   const [profile, setProfile] = useState(null);
-  const [editing, setEditing] = useState(false);  // ✅ ESTA línea es la clave
+  const [editing, setEditing] = useState(false);
   const [newUsername, setNewUsername] = useState('');
   const [error, setError] = useState(null);
 

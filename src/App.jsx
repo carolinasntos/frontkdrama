@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-ro
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Profile from './components/Profile';
-import MyKdramas from './components/MyKdramas'; // esta la creas tú
-import AddKDrama from './components/AddKDrama'; // ya la tienes
+import MyKdramas from './components/MyKdramas'; 
+import AddKDrama from './components/AddKDrama'; 
 
 function App() {
-  const [token, setToken] = useState(() => localStorage.getItem('token')); // ← carga desde localStorage
+  const [token, setToken] = useState(() => localStorage.getItem('token')); 
 
   useEffect(() => {
     if (token) {
-      localStorage.setItem('token', token); // ← guarda si cambia
+      localStorage.setItem('token', token); 
     } else {
       localStorage.removeItem('token');
     }
@@ -20,7 +20,7 @@ function App() {
 
   const handleLogout = () => {
     setToken(null); // borra estado
-    localStorage.removeItem('token'); // borra del almacenamiento
+    localStorage.removeItem('token');
   };
 
   return (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function MyKdramas({ token }) {
-    const [userKdramas, setUserKdramas] = useState([]); // ✅ aquí declaras ambos
+    const [userKdramas, setUserKdramas] = useState([]);
   //const [kdramas, setKdramas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,10 +14,10 @@ export default function MyKdramas({ token }) {
       .then(res => {
         setUserKdramas(res.data);
         /*const userKdramas = res.data || [];
-        console.log("RESPUESTA DEL BACKEND:", res.data);*/ // 👈 IMPORTANTE
+        console.log("RESPUESTA DEL BACKEND:", res.data);*/ 
         /*const kdramasFiltrados = userKdramas
             .map(uk => uk.KDrama)
-            .filter(k => k !== undefined && k !== null); // solo si existen
+            .filter(k => k !== undefined && k !== null);
 
         setKdramas(kdramasFiltrados);*/
       })
